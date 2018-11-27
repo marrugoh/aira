@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+<title>AIRA</title>
+<style type="text/css">
+<!--
+.Estilo1 {
+	font-family: "Malgun Gothic Semilight";
+	font-weight: bold;
+}
+.redondeado {
+  border-radius: 5px;
+  background-color: #FFFFCC;
+}
+.Titulo {
+	font-family: "Jokerman";
+	font-weight: bold;
+	font-size:40px;
+}
+-->
+</style>
+</head>
+  <table width="100%">
+    <tr>
+      <td align="center"><div class="Titulo">Bienvenidos a AIRA</div></td>
+    </tr>
+  </table>
+  <div>
+    <form th:action="@{/index}" th:object="${usuario}" method="post">
+
+      <table border="1"  align="center" width="29%">
+        <tr>
+          <td align="center" colspan="2"><img th:src="@{/images/iniciarsesion.jpg}"  width="254" height="230" /></td>
+        </tr>
+          <tr>
+          <td><div align="right" class="Estilo1">Usuario:</div></td>
+          <td>
+            <div class="col-sm-6">
+              <input type="text" th:field="*{nombreUsuario}" class="form-control" th:errorclass="'form-control alert-danger'"/>
+              <small class="form-text text-danger" th:if="${#fields.hasErrors('nombreUsuario')}" th:errors="*{nombreUsuario}"></small>
+            </div>
+          </td>
+          </tr>
+          <tr>
+          <td><div align="right" class="Estilo1">Contraseña:</div></td>
+          <td>
+            <div class="col-sm-6">
+              <input type="password" th:field="*{password}" class="form-control" th:errorclass="'form-control alert-danger'"/>
+              <small class="form-text text-danger" th:if="${#fields.hasErrors('nombreUsuario')}" th:errors="*{password}"></small>
+            </div>
+          </td>
+          </tr>
+        <tr>
+        <td colspan="2" align="right"><input type="submit" value="ENTRAR" class="Estilo1"/></td>
+        </tr>
+      </table>
+  </form>
+  </div>
+<div/>
+    <div>
+      <table width="100%">
+        <tr>
+          <td height="188" width="50%" align="left"><img th:src="@{/images/ceroasiempre-1280x640.jpg}"  width="328" height="145" /></td>
+          <td  width="50%" align="right"><img th:src="@{/images/LOGO DEL DADIS.png}" width="254" height="110" /></td>
+        </tr>
+      </table>
+    </div>
+</body>
+    
+</html>
